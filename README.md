@@ -62,7 +62,7 @@ where:
 - serviceRegistry.watchDog: enable/disable the auto-update for the service registry. Speficy the update seconds into the timer property
 - serviceRegistry.databse: configure here your MongoDb connection params. This database represents your Service Registry
 
-#How does it work
+#How does it work?
 The basic idea of this Project is to explain how to implement a basic Login microservice (implementation is not done!) implementing a Service Registry with a Server-Side Discovery pattern. 
 <br/>
 As you can see from the source code the service can be described as follow:
@@ -73,7 +73,8 @@ As you can see from the source code the service can be described as follow:
     }
     cluster.on('exit', function(worker, code, signal) {
         console.log("cluster exit");
-        debug('Worker %d died with code/signal %s. Restarting worker...', worker.process.pid, signal || code);
+        debug('Worker %d died with code/signal %s.', worker.process.pid, signal || code);
+        debug( Restarting worker...);
         cluster.fork();
     });
 ```
