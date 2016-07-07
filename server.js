@@ -64,15 +64,20 @@ var config= require ('./config')(),
         });
 
         server.create(function (err,server) {
-            //load API route(s) and register services
-            registerServer();
-            if (config.serviceRegistry.watchDog.isEnabled){
-                setInterval(function(){
-                    registerServer();
-                }, config.serviceRegistry.watchDog.timer);
+            if (!err){
+                //load API route(s) and register services
+                registerServer();
+                if (config.serviceRegistry.watchDog.isEnabled){
+                    setInterval(function(){
+                        registerServer();
+                    }, config.serviceRegistry.watchDog.timer);
+                }
+                console.log((config.server.https ? "HTTPS" : "HTTP") + " Server started on port " +
+                    config.server.port + (config.server.isCluster ? " cluster worker " + cluster.worker.id : ""));
+            } else {
+                debug(err);
             }
-            console.log((config.server.https ? "HTTPS" : "HTTP") + " Server started on port " + 
-                config.server.port + (config.server.isCluster ? " cluster worker " + cluster.worker.id : ""));
+
         });
 
         server.registerExitHandler(function () {
