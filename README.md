@@ -65,11 +65,58 @@ where:
 #How does it work
 The basic idea of this Project is to explain how to implement a basic Login microservice (implementation is not done!) implementing a Service Registry with a Server-Side Discovery pattern. 
 <br/>
-As you can see from the source code the service can be described as follow
+As you can see from the source code the service can be described as follow:
 - process clustering
+```javascript
+    for (var i = 0; i < numCPUs; i++) {
+        cluster.fork();
+    }
+    cluster.on('exit', function(worker, code, signal) {
+        console.log("cluster exit");
+        debug('Worker %d died with code/signal %s. Restarting worker...', worker.process.pid, signal || code);
+        cluster.fork();
+    });
+```
 - express app setup
+```javascript
+  var app=express();
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.json());
+  app.use(morgan('dev'));
+  configServer.express.app = app;
+```
+
 - server setup with a service registry on the success callback
+```javascript
+    server.create(function (err,server) {
+        if (!err){
+            registerServer();
+        }
+    }); 
+```
+
 - server exit handler registration that allow to unregister the service
+```javascript
+  server.registerExitHandler(function () {
+      unregisterServer();
+  });
+```
 - express error andling
+
+```javascript
+  app.use(function(err, req, res, next) {
+      //LOG HERE ERRORWITH A LOG ERRORS MICROSERVICE ;-)
+      debug(err);
+      res.status(500).send({
+          code:1000,
+          message:"Application Error",
+          domain:"Application Error"
+      });
+  });
+```
+Enjopy ;-)
+
+
+
 
 
