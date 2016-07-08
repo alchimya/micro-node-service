@@ -5,7 +5,7 @@ A basic implementation of a NodeJs Microservice to explain how to use my MicroNo
 This is a basic tutoria to explain how to implement a Cluster NodeJs Microservice with a Service Registry 
 using a Server Side Discovery pattern.
 
-![ScreenShot](https://raw.github.com/alchimya/micro-node-service/master/ServiceRegistry.png)
+![ScreenShot](https://raw.github.com/alchimya/micro-node-service/master/MicroservicesArch.png)
 
 #How to install
 <b>sudo npm install</b>
