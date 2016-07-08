@@ -7,8 +7,6 @@ using a Server Side Discovery pattern.
 
 ![ScreenShot](https://raw.github.com/alchimya/micro-node-service/master/ServiceRegistry.png)
 
-<br/>
-
 #How to install
 <b>sudo npm install</b>
 
