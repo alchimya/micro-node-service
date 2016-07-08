@@ -10,7 +10,7 @@ using a Server Side Discovery pattern.
 #How to install
 <b>sudo npm install</b>
 
-#Configuraiton
+#Configuraiton 
 The configuraiton is quite straightforward and you must to setup the config.json file as follow:
 ```javascript
 {
