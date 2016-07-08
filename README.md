@@ -107,7 +107,7 @@ As you can see from the source code the service can be described as follow:
 
 ```javascript
   app.use(function(err, req, res, next) {
-      //LOG HERE ERRORWITH A LOG ERRORS MICROSERVICE ;-)
+      //LOG HERE ERROR WITH A LOG ERRORS MICROSERVICE ;-)
       debug(err);
       res.status(500).send({
           code:1000,
