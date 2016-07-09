@@ -6,7 +6,9 @@ This is a basic tutorial to explain how to implement a Cluster NodeJs Microservi
 using a Server Side Discovery pattern.
 
 ![ScreenShot](https://raw.github.com/alchimya/micro-node-service/master/MicroservicesArch.png)
- 
+
+![ScreenShot](https://raw.github.com/alchimya/micro-node-service/master/micro-node-net-lib.gif)
+
 #How to install
 <b>sudo npm install</b>
 
