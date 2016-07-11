@@ -90,7 +90,7 @@ var config= require ('./config')(),
                         serviceId:config.server.id,
                         serviceHost:address(),
                         servicePort:config.server.port,
-                        serviceProtocol:config.server.https ? "https" : "http",
+                        serviceProtocol:config.server.https.isEnabled ? "https" : "http",
                         endpointId:item.name,
                         endpointPath:config.api.route + "/" + item.route
                     }, function (err,item) {
